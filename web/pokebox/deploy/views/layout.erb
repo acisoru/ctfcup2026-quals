@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PokéBox — share your box</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="/">📦 PokéBox</a>
+    <nav>
+      <a href="/">feed</a>
+      <% if current_user %>
+        <a href="/boxes">my boxes</a>
+        <a href="/settings">settings</a>
+        <a class="who" href="/u/<%= h current_user["username"] %>">@<%= h current_user["username"] %></a>
+        <a href="/logout">logout</a>
+      <% else %>
+        <a href="/login">login</a>
+        <a href="/register">register</a>
+      <% end %>
+    </nav>
+  </header>
+  <main>
+    <%= yield %>
+  </main>
+  <footer>PokéBox — upload your .sav, show off your team, trade tips with trainers.</footer>
+</body>
+</html>

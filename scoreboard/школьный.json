@@ -1,0 +1,818 @@
+[
+  {
+    "place": 1,
+    "name": "pwn3dByK1d$",
+    "points": 13372,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T13:08:49Z"
+  },
+  {
+    "place": 2,
+    "name": "zagip",
+    "points": 13372,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T17:05:44Z"
+  },
+  {
+    "place": 3,
+    "name": "daywave.",
+    "points": 13372,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T18:34:37Z"
+  },
+  {
+    "place": 4,
+    "name": "Team Moshn1ky",
+    "points": 13372,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T19:54:49Z"
+  },
+  {
+    "place": 5,
+    "name": "404: Skills Not Found",
+    "points": 13372,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T20:54:47Z"
+  },
+  {
+    "place": 6,
+    "name": "BPT2020",
+    "points": 13372,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T21:01:53Z"
+  },
+  {
+    "place": 7,
+    "name": "Cyb3rP4w5",
+    "points": 13372,
+    "league": "Школьный",
+    "from": "Сочи",
+    "last solve": "2026-10-31T21:44:59Z"
+  },
+  {
+    "place": 8,
+    "name": "Sl0pium",
+    "points": 13372,
+    "league": "Школьный",
+    "from": "Мытищи",
+    "last solve": "2026-10-31T21:56:45Z"
+  },
+  {
+    "place": 9,
+    "name": "yttrium",
+    "points": 13372,
+    "league": "Школьный",
+    "from": "Пермь, Москва, Питер",
+    "last solve": "2026-10-31T22:36:55Z"
+  },
+  {
+    "place": 10,
+    "name": "Rakuzan",
+    "points": 12555,
+    "league": "Школьный",
+    "from": "Астрахань",
+    "last solve": "2026-11-01T07:16:03Z"
+  },
+  {
+    "place": 11,
+    "name": "4x10m",
+    "points": 10949,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T21:58:13Z"
+  },
+  {
+    "place": 12,
+    "name": "Flag bearers",
+    "points": 10155,
+    "league": "Школьный",
+    "from": "Новосибирск",
+    "last solve": "2026-10-31T21:38:51Z"
+  },
+  {
+    "place": 13,
+    "name": "sesuriti",
+    "points": 10110,
+    "league": "Школьный",
+    "from": "Саратов",
+    "last solve": "2026-10-31T18:08:14Z"
+  },
+  {
+    "place": 14,
+    "name": "TechnoH4ck",
+    "points": 10010,
+    "league": "Школьный",
+    "from": "с. Павловская Слобода",
+    "last solve": "2026-11-01T05:12:45Z"
+  },
+  {
+    "place": 15,
+    "name": "слООПцы",
+    "points": 9986,
+    "league": "Школьный",
+    "from": "Сириус",
+    "last solve": "2026-10-31T22:26:23Z"
+  },
+  {
+    "place": 16,
+    "name": "VzDX",
+    "points": 9284,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T23:01:35Z"
+  },
+  {
+    "place": 17,
+    "name": "bet0n0m3shalka",
+    "points": 8421,
+    "league": "Школьный",
+    "from": "Казань",
+    "last solve": "2026-10-31T15:56:26Z"
+  },
+  {
+    "place": 18,
+    "name": "grep masters",
+    "points": 7131,
+    "league": "Школьный",
+    "from": "Санкт-Петербург",
+    "last solve": "2026-11-01T06:10:37Z"
+  },
+  {
+    "place": 19,
+    "name": "Nam Ne DANO",
+    "points": 7118,
+    "league": "Школьный",
+    "from": "Санкт-Петербург",
+    "last solve": "2026-10-31T22:11:33Z"
+  },
+  {
+    "place": 20,
+    "name": "Kernel_B0MB",
+    "points": 7092,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T20:56:19Z"
+  },
+  {
+    "place": 21,
+    "name": "polygon",
+    "points": 6700,
+    "league": "Школьный",
+    "from": "Салехард",
+    "last solve": "2026-11-01T01:37:57Z"
+  },
+  {
+    "place": 22,
+    "name": "Принтерная",
+    "points": 6468,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-11-01T07:20:10Z"
+  },
+  {
+    "place": 23,
+    "name": "EGN Team",
+    "points": 6198,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T15:49:04Z"
+  },
+  {
+    "place": 24,
+    "name": "CVE-26 Crew",
+    "points": 6190,
+    "league": "Школьный",
+    "from": "Горловка",
+    "last solve": "2026-11-01T02:33:14Z"
+  },
+  {
+    "place": 25,
+    "name": "beplandsec",
+    "points": 5635,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-11-01T00:41:31Z"
+  },
+  {
+    "place": 26,
+    "name": "RPW",
+    "points": 5556,
+    "league": "Школьный",
+    "from": "Долгопрудный",
+    "last solve": "2026-10-31T22:12:22Z"
+  },
+  {
+    "place": 27,
+    "name": "Ep1c!fury",
+    "points": 5556,
+    "league": "Школьный",
+    "from": "Челябинск",
+    "last solve": "2026-11-01T04:20:38Z"
+  },
+  {
+    "place": 28,
+    "name": "Мясные CTFеры",
+    "points": 5175,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T19:49:07Z"
+  },
+  {
+    "place": 29,
+    "name": "< specs >",
+    "points": 4327,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-11-01T08:18:14Z"
+  },
+  {
+    "place": 30,
+    "name": "Ligu",
+    "points": 4266,
+    "league": "Школьный",
+    "from": "Иркутск",
+    "last solve": "2026-11-01T00:34:54Z"
+  },
+  {
+    "place": 31,
+    "name": "muh0m0rch1k1",
+    "points": 3772,
+    "league": "Школьный",
+    "from": "Екатеринбург",
+    "last solve": "2026-10-31T15:31:41Z"
+  },
+  {
+    "place": 32,
+    "name": "N0logsN0crime",
+    "points": 3472,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-11-01T01:00:08Z"
+  },
+  {
+    "place": 33,
+    "name": "Coal_Cyber",
+    "points": 3392,
+    "league": "Школьный",
+    "from": "Кемерово",
+    "last solve": "2026-11-01T05:08:19Z"
+  },
+  {
+    "place": 34,
+    "name": "B1g_C4sh_1n_B1tc01n_m30w",
+    "points": 3372,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-11-01T07:15:41Z"
+  },
+  {
+    "place": 35,
+    "name": "AdminAdmin",
+    "points": 3293,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-11-01T07:22:13Z"
+  },
+  {
+    "place": 36,
+    "name": "хэшкотики",
+    "points": 2926,
+    "league": "Школьный",
+    "from": "Киров",
+    "last solve": "2026-10-31T23:02:07Z"
+  },
+  {
+    "place": 37,
+    "name": "Bug Criminal �",
+    "points": 2495,
+    "league": "Школьный",
+    "from": "Астрахань",
+    "last solve": "2026-10-31T20:25:01Z"
+  },
+  {
+    "place": 38,
+    "name": "Незнающие побед",
+    "points": 2432,
+    "league": "Школьный",
+    "from": "Казань",
+    "last solve": "2026-10-31T13:29:09Z"
+  },
+  {
+    "place": 39,
+    "name": "ITea",
+    "points": 2339,
+    "league": "Школьный",
+    "from": "Пенза",
+    "last solve": "2026-11-01T06:06:02Z"
+  },
+  {
+    "place": 40,
+    "name": "Cyber XTeam",
+    "points": 2261,
+    "league": "Школьный",
+    "from": "Елабуга",
+    "last solve": "2026-11-01T03:45:11Z"
+  },
+  {
+    "place": 41,
+    "name": "lyc9",
+    "points": 1934,
+    "league": "Школьный",
+    "from": "Новосибирск",
+    "last solve": "2026-11-01T02:53:40Z"
+  },
+  {
+    "place": 42,
+    "name": "Айзеки",
+    "points": 1561,
+    "league": "Школьный",
+    "from": "Владикавказ",
+    "last solve": "2026-11-01T01:23:04Z"
+  },
+  {
+    "place": 43,
+    "name": "d0ope",
+    "points": 1527,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-11-01T08:50:06Z"
+  },
+  {
+    "place": 44,
+    "name": "chmod+x",
+    "points": 1516,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T21:11:43Z"
+  },
+  {
+    "place": 45,
+    "name": "Prototype_2525",
+    "points": 1473,
+    "league": "Школьный",
+    "from": "Вязьма, Смоленск",
+    "last solve": "2026-10-31T23:28:23Z"
+  },
+  {
+    "place": 46,
+    "name": "C4P1B4R4",
+    "points": 1446,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T14:02:41Z"
+  },
+  {
+    "place": 47,
+    "name": "Крутые хакеры",
+    "points": 1416,
+    "league": "Школьный",
+    "from": "Санкт-Петербург",
+    "last solve": "2026-10-31T19:08:45Z"
+  },
+  {
+    "place": 48,
+    "name": "ret_39",
+    "points": 1408,
+    "league": "Школьный",
+    "from": "Казань",
+    "last solve": "2026-11-01T08:55:26Z"
+  },
+  {
+    "place": 49,
+    "name": "D3DS3C",
+    "points": 1351,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-11-01T07:11:51Z"
+  },
+  {
+    "place": 50,
+    "name": "KernelSense",
+    "points": 1122,
+    "league": "Школьный",
+    "from": "Новосибирск",
+    "last solve": "2026-10-31T18:28:46Z"
+  },
+  {
+    "place": 51,
+    "name": "Кеплер",
+    "points": 1109,
+    "league": "Школьный",
+    "from": "Куртамыш",
+    "last solve": "2026-10-31T10:32:48Z"
+  },
+  {
+    "place": 52,
+    "name": "opsec",
+    "points": 1109,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T12:44:10Z"
+  },
+  {
+    "place": 53,
+    "name": "Anti7",
+    "points": 1022,
+    "league": "Школьный",
+    "from": "Воронеж",
+    "last solve": "2026-10-31T13:34:15Z"
+  },
+  {
+    "place": 54,
+    "name": "KENZO",
+    "points": 915,
+    "league": "Школьный",
+    "from": "Самара",
+    "last solve": "2026-10-31T13:56:56Z"
+  },
+  {
+    "place": 55,
+    "name": "1_10v3_fu22y_f3m80y5",
+    "points": 915,
+    "league": "Школьный",
+    "from": "Тюмень, Новокузнецк",
+    "last solve": "2026-10-31T17:11:45Z"
+  },
+  {
+    "place": 56,
+    "name": "Молния",
+    "points": 900,
+    "league": "Школьный",
+    "from": "Власиха Московская область",
+    "last solve": "2026-10-31T17:31:13Z"
+  },
+  {
+    "place": 57,
+    "name": "Киберщит",
+    "points": 883,
+    "league": "Школьный",
+    "from": "Горловка",
+    "last solve": "2026-10-31T21:58:41Z"
+  },
+  {
+    "place": 58,
+    "name": "LowTab",
+    "points": 829,
+    "league": "Школьный",
+    "from": "Казань",
+    "last solve": "2026-11-01T07:39:49Z"
+  },
+  {
+    "place": 59,
+    "name": "Флешка",
+    "points": 800,
+    "league": "Школьный",
+    "from": "Владивосток",
+    "last solve": "2026-11-01T05:08:42Z"
+  },
+  {
+    "place": 60,
+    "name": "l0wtab_s3cur1ty",
+    "points": 715,
+    "league": "Школьный",
+    "from": "Владивосток",
+    "last solve": "2026-10-31T12:29:06Z"
+  },
+  {
+    "place": 61,
+    "name": "H4rd_R3b00t",
+    "points": 700,
+    "league": "Школьный",
+    "from": "Иннополис, Москва, Нижний Новгород",
+    "last solve": "2026-10-31T16:51:21Z"
+  },
+  {
+    "place": 62,
+    "name": "Step_On_Up",
+    "points": 700,
+    "league": "Школьный",
+    "from": "Саранск",
+    "last solve": "2026-10-31T17:38:42Z"
+  },
+  {
+    "place": 63,
+    "name": "drip caps",
+    "points": 700,
+    "league": "Школьный",
+    "from": "Ижевск",
+    "last solve": "2026-10-31T22:53:29Z"
+  },
+  {
+    "place": 64,
+    "name": "shellfish",
+    "points": 600,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T10:15:52Z"
+  },
+  {
+    "place": 65,
+    "name": "Revision",
+    "points": 600,
+    "league": "Школьный",
+    "from": "Самара",
+    "last solve": "2026-10-31T13:06:56Z"
+  },
+  {
+    "place": 66,
+    "name": "NullK",
+    "points": 600,
+    "league": "Школьный",
+    "from": "Санкт-Петербург",
+    "last solve": "2026-11-01T08:11:36Z"
+  },
+  {
+    "place": 67,
+    "name": "fr34kk1d5",
+    "points": 500,
+    "league": "Школьный",
+    "from": "Обь",
+    "last solve": "2026-10-31T09:29:09Z"
+  },
+  {
+    "place": 68,
+    "name": "chatGPT-вайбкодеры",
+    "points": 500,
+    "league": "Школьный",
+    "from": "Челябинск",
+    "last solve": "2026-10-31T10:16:34Z"
+  },
+  {
+    "place": 69,
+    "name": "cyber_5uv0r0v",
+    "points": 500,
+    "league": "Школьный",
+    "from": "Санкт-Петербург",
+    "last solve": "2026-10-31T12:24:24Z"
+  },
+  {
+    "place": 70,
+    "name": "тридцатьпяточки",
+    "points": 500,
+    "league": "Школьный",
+    "from": "Ижевск",
+    "last solve": "2026-10-31T13:40:23Z"
+  },
+  {
+    "place": 71,
+    "name": "Ctrl Z",
+    "points": 500,
+    "league": "Школьный",
+    "from": "Калининград",
+    "last solve": "2026-11-01T01:11:04Z"
+  },
+  {
+    "place": 72,
+    "name": "Movavi",
+    "points": 400,
+    "league": "Школьный",
+    "from": "Новосибирск",
+    "last solve": "2026-10-31T10:18:38Z"
+  },
+  {
+    "place": 73,
+    "name": "Бандиты",
+    "points": 400,
+    "league": "Школьный",
+    "from": "Красноярск",
+    "last solve": "2026-10-31T10:44:07Z"
+  },
+  {
+    "place": 74,
+    "name": "Кожаная Шляпа�",
+    "points": 400,
+    "league": "Школьный",
+    "from": "Копейск",
+    "last solve": "2026-10-31T12:01:27Z"
+  },
+  {
+    "place": 75,
+    "name": "Daisuke Narotan",
+    "points": 315,
+    "league": "Школьный",
+    "from": "Красноярск",
+    "last solve": "2026-10-31T10:59:12Z"
+  },
+  {
+    "place": 76,
+    "name": "Beta",
+    "points": 300,
+    "league": "Школьный",
+    "from": "Большие Березники",
+    "last solve": "2026-10-31T12:20:46Z"
+  },
+  {
+    "place": 77,
+    "name": "Девятый Вал",
+    "points": 300,
+    "league": "Школьный",
+    "from": "Раменское",
+    "last solve": "2026-10-31T13:42:56Z"
+  },
+  {
+    "place": 78,
+    "name": "WHAT",
+    "points": 300,
+    "league": "Школьный",
+    "from": "Челябинск",
+    "last solve": "2026-10-31T14:15:16Z"
+  },
+  {
+    "place": 79,
+    "name": "Содружество IP",
+    "points": 300,
+    "league": "Школьный",
+    "from": "Воронеж",
+    "last solve": "2026-10-31T16:50:44Z"
+  },
+  {
+    "place": 80,
+    "name": "Искатели",
+    "points": 200,
+    "league": "Школьный",
+    "from": "Горловка",
+    "last solve": "2026-10-31T09:21:31Z"
+  },
+  {
+    "place": 81,
+    "name": "А13",
+    "points": 200,
+    "league": "Школьный",
+    "from": "Копейск",
+    "last solve": "2026-10-31T10:44:29Z"
+  },
+  {
+    "place": 82,
+    "name": "Stariy_bog Team",
+    "points": 200,
+    "league": "Школьный",
+    "from": "Unknown",
+    "last solve": "2026-10-31T10:56:56Z"
+  },
+  {
+    "place": 83,
+    "name": "ppku{shturm}",
+    "points": 200,
+    "league": "Школьный",
+    "from": "Петрозаводск",
+    "last solve": "2026-10-31T10:58:35Z"
+  },
+  {
+    "place": 84,
+    "name": "Bonteam",
+    "points": 200,
+    "league": "Школьный",
+    "from": "Липецк",
+    "last solve": "2026-10-31T11:00:40Z"
+  },
+  {
+    "place": 85,
+    "name": "uzgeda[-18]",
+    "points": 200,
+    "league": "Школьный",
+    "from": "Челябинск",
+    "last solve": "2026-10-31T13:11:38Z"
+  },
+  {
+    "place": 86,
+    "name": "DataGuard",
+    "points": 200,
+    "league": "Школьный",
+    "from": "Горловка",
+    "last solve": "2026-10-31T16:03:18Z"
+  },
+  {
+    "place": 87,
+    "name": "Informational Dreamers",
+    "points": 200,
+    "league": "Школьный",
+    "from": "Белгородская область",
+    "last solve": "2026-10-31T16:20:42Z"
+  },
+  {
+    "place": 88,
+    "name": "АйтиВертикаль",
+    "points": 200,
+    "league": "Школьный",
+    "from": "Москва",
+    "last solve": "2026-10-31T16:56:39Z"
+  },
+  {
+    "place": 89,
+    "name": "31-ykt",
+    "points": 200,
+    "league": "Школьный",
+    "from": "Якутск",
+    "last solve": "2026-11-01T02:58:22Z"
+  },
+  {
+    "place": 90,
+    "name": "Сила инженеров Магадана",
+    "points": 200,
+    "league": "Школьный",
+    "from": "Магадан",
+    "last solve": "2026-11-01T03:51:43Z"
+  },
+  {
+    "place": 91,
+    "name": "Ольхон",
+    "points": 200,
+    "league": "Школьный",
+    "from": "село Майя",
+    "last solve": "2026-11-01T06:04:15Z"
+  },
+  {
+    "place": 92,
+    "name": "Шедевропрограммисты",
+    "points": 115,
+    "league": "Школьный",
+    "from": "Ковров",
+    "last solve": "2026-10-31T16:12:00Z"
+  },
+  {
+    "place": 93,
+    "name": "otricatelinoymnie",
+    "points": 100,
+    "league": "Школьный",
+    "from": "Казань",
+    "last solve": "2026-10-31T09:08:22Z"
+  },
+  {
+    "place": 94,
+    "name": "Drive Team",
+    "points": 100,
+    "league": "Школьный",
+    "from": "Полевской",
+    "last solve": "2026-10-31T09:26:53Z"
+  },
+  {
+    "place": 95,
+    "name": "Импульс693",
+    "points": 100,
+    "league": "Школьный",
+    "from": "Санкт-Петербург",
+    "last solve": "2026-10-31T09:43:02Z"
+  },
+  {
+    "place": 96,
+    "name": "А13А9",
+    "points": 100,
+    "league": "Школьный",
+    "from": "Копейск",
+    "last solve": "2026-10-31T10:31:44Z"
+  },
+  {
+    "place": 97,
+    "name": "Cyber-paws",
+    "points": 100,
+    "league": "Школьный",
+    "from": "Белгородский муниципальный округ",
+    "last solve": "2026-10-31T11:00:50Z"
+  },
+  {
+    "place": 98,
+    "name": "Fus1on",
+    "points": 100,
+    "league": "Школьный",
+    "from": "Пермь",
+    "last solve": "2026-10-31T11:17:19Z"
+  },
+  {
+    "place": 99,
+    "name": "один в поле ещё как воин",
+    "points": 100,
+    "league": "Школьный",
+    "from": "Тюмень",
+    "last solve": "2026-10-31T11:34:35Z"
+  },
+  {
+    "place": 100,
+    "name": "Импульс",
+    "points": 100,
+    "league": "Школьный",
+    "from": "Горловка",
+    "last solve": "2026-10-31T12:18:13Z"
+  },
+  {
+    "place": 101,
+    "name": "Лотос АСВУ",
+    "points": 100,
+    "league": "Школьный",
+    "from": "Астрахань",
+    "last solve": "2026-10-31T13:52:45Z"
+  },
+  {
+    "place": 102,
+    "name": "Елабужские Барсы",
+    "points": 100,
+    "league": "Школьный",
+    "from": "Елабуга",
+    "last solve": "2026-10-31T18:44:19Z"
+  }
+]

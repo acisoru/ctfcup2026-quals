@@ -1,0 +1,3 @@
+{
+    "deploy/challenge.qcow2": "https://s3.dev-c.tf/public/ctfcup-2026-public/challenge.qcow2"
+}

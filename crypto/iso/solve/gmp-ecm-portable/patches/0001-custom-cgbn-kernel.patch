@@ -1,0 +1,69 @@
+diff --git a/cgbn_stage1.cu b/cgbn_stage1.cu
+index b6b7a47..379cbff 100644
+--- a/cgbn_stage1.cu
++++ b/cgbn_stage1.cu
+@@ -27,6 +27,7 @@ http://www.gnu.org/licenses/ or write to the Free Software Foundation, Inc.,
+ 
+ #include "cgbn_stage1.h"
+ 
++#include <algorithm>
+ #include <cassert>
+ #include <stdio.h>
+ #include <stdlib.h>
+@@ -734,20 +735,23 @@ int cgbn_ecm_stage1(mpz_t *factors, int *array_found,
+    * warning is printed when a particular N might benefit from a custom sized
+    * kernel.
+    */
++#ifndef ECM_CUSTOM_BITS
++#define ECM_CUSTOM_BITS 2432
++#endif
++#ifndef ECM_CUSTOM_TPI
++#define ECM_CUSTOM_TPI 16
++#endif
+   typedef cgbn_params_t<8, 1536>  cgbn_params_1536;
+   typedef cgbn_params_t<8, 2048>  cgbn_params_2048;
++  typedef cgbn_params_t<ECM_CUSTOM_TPI, ECM_CUSTOM_BITS> cgbn_params_custom;
+   typedef cgbn_params_t<16, 3072> cgbn_params_3072;
+-  typedef cgbn_params_t<16, 4096> cgbn_params_4096;
+-  typedef cgbn_params_t<16, 6144> cgbn_params_6144;
+-  typedef cgbn_params_t<16, 8192> cgbn_params_8192;
+-  typedef cgbn_params_t<32, 12288> cgbn_params_12288;
+   available_kernels.push_back((uint32_t)cgbn_params_1536::BITS);
+   available_kernels.push_back((uint32_t)cgbn_params_2048::BITS);
++  available_kernels.push_back((uint32_t)cgbn_params_custom::BITS);
+   available_kernels.push_back((uint32_t)cgbn_params_3072::BITS);
+-  available_kernels.push_back((uint32_t)cgbn_params_4096::BITS);
+-  available_kernels.push_back((uint32_t)cgbn_params_6144::BITS);
+-  available_kernels.push_back((uint32_t)cgbn_params_8192::BITS);
+-  available_kernels.push_back((uint32_t)cgbn_params_12288::BITS);
++  std::sort(available_kernels.begin(), available_kernels.end());
++  available_kernels.erase(std::unique(available_kernels.begin(), available_kernels.end()),
++                          available_kernels.end());
+ #endif
+ 
+   /* Pointer to CUDA kernel. */
+@@ -776,21 +780,12 @@ int cgbn_ecm_stage1(mpz_t *factors, int *array_found,
+       } else if (BITS == cgbn_params_2048::BITS) {
+         TPI = cgbn_params_2048::TPI;
+         kernel = kernel_double_add<cgbn_params_2048>;
++      } else if (BITS == cgbn_params_custom::BITS) {
++        TPI = cgbn_params_custom::TPI;
++        kernel = kernel_double_add<cgbn_params_custom>;
+       } else if (BITS == cgbn_params_3072::BITS) {
+         TPI = cgbn_params_3072::TPI;
+         kernel = kernel_double_add<cgbn_params_3072>;
+-      } else if (BITS == cgbn_params_4096::BITS) {
+-        TPI = cgbn_params_4096::TPI;
+-        kernel = kernel_double_add<cgbn_params_4096>;
+-      } else if (BITS == cgbn_params_6144::BITS) {
+-        TPI = cgbn_params_6144::TPI;
+-        kernel = kernel_double_add<cgbn_params_6144>;
+-      } else if (BITS == cgbn_params_8192::BITS) {
+-        TPI = cgbn_params_8192::TPI;
+-        kernel = kernel_double_add<cgbn_params_8192>;
+-      } else if (BITS == cgbn_params_12288::BITS) {
+-        TPI = cgbn_params_12288::TPI;
+-        kernel = kernel_double_add<cgbn_params_12288>;
+ #endif
+       } else {
+         outputf (OUTPUT_ERROR, "CGBN kernel not found for %d bits\n", BITS);

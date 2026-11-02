@@ -1,0 +1,21 @@
+[package]
+name = "flygammon"
+version = "0.1.0"
+edition = "2021"
+description = "Backgammon self-play RL agent (burn) with a deliberate closeout blind spot — CTF task"
+
+[dependencies]
+burn = { version = "0.21", features = ["autodiff"] }
+rand = "0.8"
+rayon = "1"
+
+[features]
+default = ["cpu"]
+# CPU backend (ndarray). The default.
+cpu = ["burn/ndarray"]
+# Apple GPU via Metal (burn's wgpu backend -> Metal on macOS).
+metal = ["burn/metal"]
+
+[profile.release]
+opt-level = 3
+lto = "thin"

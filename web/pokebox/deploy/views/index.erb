@@ -1,0 +1,14 @@
+<h1>Shared boxes</h1>
+<p class="lead">Fresh teams from trainers around the world.</p>
+<ul class="feed">
+  <% @feed.each do |b| %>
+    <li>
+      <a href="/box/<%= b["id"] %>"><strong><%= b["title"].to_s.empty? ? h(b["trainer_name"]) : cm(b["title"]) %></strong></a>
+      <span class="muted">by <a href="/u/<%= h b["username"] %>">@<%= h b["username"] %></a> · <%= h b["created_at"] %></span>
+      <% unless b["description"].to_s.empty? %>
+        <div class="feed-desc"><%= cm(b["description"]) %></div>
+      <% end %>
+    </li>
+  <% end %>
+  <% if @feed.empty? %><li class="muted">No shared boxes yet. Be the first!</li><% end %>
+</ul>

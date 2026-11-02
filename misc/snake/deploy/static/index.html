@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snake</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    background: #14171e; color: #e9e6dd;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 18px; padding: 28px 16px;
+  }
+  h1 { margin: 0; font-weight: 600; letter-spacing: .06em; font-size: 1.5rem; }
+  .wrap { display: flex; flex-wrap: wrap; gap: 36px; align-items: center; justify-content: center; }
+  #board { display: block; }
+  .pad { width: 260px; height: 260px; user-select: none; }
+  .pad .btn polygon { fill: #262b36; stroke: #f0b429; stroke-width: 3; stroke-linejoin: round; cursor: pointer; transition: fill .08s; }
+  .pad .btn:hover polygon { fill: #353c4b; }
+  .pad .btn:active polygon, .pad .btn.pressed polygon { fill: #f0b429; }
+  .pad .btn:active text, .pad .btn.pressed text { fill: #14171e; }
+  .pad .btn text { fill: #e9e6dd; font-size: 30px; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+  .pad .btn .key { font-size: 11px; fill: #8b93a7; }
+  .pad .hub { fill: none; stroke: #353c4b; stroke-width: 2; stroke-dasharray: 5 5; }
+  .pad.disabled .btn polygon { stroke: #4a5160; cursor: not-allowed; }
+  .status { display: flex; gap: 24px; font-variant-numeric: tabular-nums; color: #b9bfcf; }
+  .status b { color: #e9e6dd; }
+  .status .dead { color: #ff6b6b; }
+  .status .won { color: #7bd88f; }
+  button#reset {
+    background: #262b36; color: #e9e6dd; border: 2px solid #f0b429; border-radius: 8px;
+    padding: 8px 18px; font: inherit; cursor: pointer;
+  }
+  button#reset:hover { background: #353c4b; }
+  .hint { color: #6f7789; font-size: .85rem; }
+</style>
+</head>
+<body>
+  <h1>SNAKE</h1>
+  <div class="wrap">
+    <canvas id="board"></canvas>
+    <svg id="pad" class="pad" xmlns="http://www.w3.org/2000/svg"></svg>
+  </div>
+  <div class="status">
+    <span>Length <b id="len">-</b> / <b id="target">-</b></span>
+    <span id="conn">connecting…</span>
+    <span id="result"></span>
+  </div>
+  <button id="reset">Reset (R)</button>
+  <div class="hint">Keys: W E / A D / Z X move the snake. One step per press. No timer.</div>
+
+<script>
+(() => {
+  const SQRT3 = Math.sqrt(3);
+  // Must match Dirs in game.go: E, NE, NW, W, SW, SE (pointy-top cells).
+  const DIRS = [[1,0],[1,-1],[0,-1],[-1,0],[-1,1],[0,1]];
+  const ARROWS = ['→','↗','↖','←','↙','↘'];
+  const KEYS = {d:0, e:1, w:2, a:3, z:4, x:5};
+
+  const canvas = document.getElementById('board');
+  const ctx = canvas.getContext('2d');
+  const pad = document.getElementById('pad');
+  const $len = document.getElementById('len');
+  const $target = document.getElementById('target');
+  const $conn = document.getElementById('conn');
+  const $result = document.getElementById('result');
+
+  let state = null;
+  let ws = null;
+  let alerted = false;
+
+  // ---------- hex geometry ----------
+  function axialToPixel(q, r, size) {
+    return [size * SQRT3 * (q + r / 2), size * 1.5 * r];
+  }
+  function hexCorners(cx, cy, size) {
+    const pts = [];
+    for (let i = 0; i < 6; i++) {
+      const a = Math.PI / 180 * (60 * i - 30); // pointy-top
+      pts.push([cx + size * Math.cos(a), cy + size * Math.sin(a)]);
+    }
+    return pts;
+  }
+  function tracePath(c, pts) {
+    c.beginPath();
+    pts.forEach(([x, y], i) => i ? c.lineTo(x, y) : c.moveTo(x, y));
+    c.closePath();
+  }
+
+  // ---------- board ----------
+  const CELL = 26;
+  function boardCells(radius) {
+    const cells = [];
+    for (let q = -radius; q <= radius; q++)
+      for (let r = -radius; r <= radius; r++)
+        if (Math.abs(q + r) <= radius) cells.push([q, r]);
+    return cells;
+  }
+
+  function draw() {
+    const radius = state ? state.radius : 4;
+    const W = Math.ceil(CELL * SQRT3 * (2 * radius + 1) + 16);
+    const H = Math.ceil(CELL * (1.5 * 2 * radius + 2) + 16);
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    const ox = W / 2, oy = H / 2;
+    const center = (q, r) => { const [x, y] = axialToPixel(q, r, CELL); return [ox + x, oy + y]; };
+
+    // honeycomb
+    for (const [q, r] of boardCells(radius)) {
+      const [cx, cy] = center(q, r);
+      tracePath(ctx, hexCorners(cx, cy, CELL - 1));
+      ctx.fillStyle = '#1c2029';
+      ctx.fill();
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = '#f0b429';
+      ctx.stroke();
+    }
+    if (!state) return;
+
+    // food
+    if (state.food) {
+      const [cx, cy] = center(state.food.q, state.food.r);
+      ctx.beginPath();
+      ctx.arc(cx, cy, CELL * 0.38, 0, Math.PI * 2);
+      ctx.fillStyle = '#ff6b6b';
+      ctx.fill();
+    }
+
+    // snake, tail first so the head is drawn on top
+    const n = state.snake.length;
+    for (let i = n - 1; i >= 0; i--) {
+      const { q, r } = state.snake[i];
+      const [cx, cy] = center(q, r);
+      tracePath(ctx, hexCorners(cx, cy, CELL - 4));
+      let fill;
+      if (!state.alive) fill = i === 0 ? '#9a3c3c' : '#5a3a3a';
+      else if (state.won) fill = i === 0 ? '#b8f5c3' : '#7bd88f';
+      else {
+        const t = n > 1 ? i / (n - 1) : 0;
+        fill = i === 0 ? '#9ef7a8' : `hsl(140, ${55 - t * 20}%, ${48 - t * 18}%)`;
+      }
+      ctx.fillStyle = fill;
+      ctx.fill();
+    }
+    // eyes on head
+    const head = state.snake[0];
+    const [hx, hy] = center(head.q, head.r);
+    ctx.fillStyle = '#14171e';
+    ctx.beginPath(); ctx.arc(hx - 5, hy - 3, 2.5, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(hx + 5, hy - 3, 2.5, 0, Math.PI * 2); ctx.fill();
+  }
+
+  // ---------- direction pad (6 hex buttons around an empty hub) ----------
+  function buildPad() {
+    const S = 36;               // button hex size
+    const ext = S * SQRT3 * 2 + 6;
+    pad.setAttribute('viewBox', `${-ext} ${-ext} ${2 * ext} ${2 * ext}`);
+    const ns = 'http://www.w3.org/2000/svg';
+    const poly = (pts, cls) => {
+      const p = document.createElementNS(ns, 'polygon');
+      p.setAttribute('points', pts.map(v => v.join(',')).join(' '));
+      if (cls) p.setAttribute('class', cls);
+      return p;
+    };
+    pad.appendChild(poly(hexCorners(0, 0, S - 6), 'hub'));
+    DIRS.forEach(([q, r], i) => {
+      const [cx, cy] = axialToPixel(q, r, S + 2);
+      const g = document.createElementNS(ns, 'g');
+      g.setAttribute('class', 'btn');
+      g.dataset.dir = i;
+      g.appendChild(poly(hexCorners(cx, cy, S - 2)));
+      const t = document.createElementNS(ns, 'text');
+      t.setAttribute('x', cx); t.setAttribute('y', cy - 4);
+      t.textContent = ARROWS[i];
+      g.appendChild(t);
+      const k = document.createElementNS(ns, 'text');
+      k.setAttribute('class', 'key');
+      k.setAttribute('x', cx); k.setAttribute('y', cy + 18);
+      k.textContent = Object.keys(KEYS).find(key => KEYS[key] === i).toUpperCase();
+      g.appendChild(k);
+      g.addEventListener('click', () => move(i));
+      pad.appendChild(g);
+    });
+  }
+
+  function flash(dir) {
+    const g = pad.querySelector(`.btn[data-dir="${dir}"]`);
+    if (!g) return;
+    g.classList.add('pressed');
+    setTimeout(() => g.classList.remove('pressed'), 90);
+  }
+
+  // ---------- websocket ----------
+  function send(obj) {
+    if (ws && ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify(obj));
+  }
+  function move(dir) { flash(dir); send({ type: 'move', dir }); }
+  function reset() { alerted = false; send({ type: 'reset' }); }
+
+  function connect() {
+    const proto = location.protocol === 'https:' ? 'wss' : 'ws';
+    ws = new WebSocket(`${proto}://${location.host}/ws`);
+    ws.onopen = () => { $conn.textContent = 'connected'; pad.classList.remove('disabled'); };
+    ws.onclose = () => {
+      $conn.textContent = 'disconnected, retrying…';
+      pad.classList.add('disabled');
+      setTimeout(connect, 1000);
+    };
+    ws.onerror = () => ws.close();
+    ws.onmessage = ev => {
+      let msg;
+      try { msg = JSON.parse(ev.data); } catch { return; }
+      if (msg.type !== 'state') return;
+      state = msg;
+      render();
+    };
+  }
+
+  function render() {
+    draw();
+    $len.textContent = state.length;
+    $target.textContent = state.target;
+    if (state.won) {
+      $result.innerHTML = '<span class="won">You win!</span>';
+      if (!alerted) { alerted = true; setTimeout(() => alert(state.message), 50); }
+    } else if (!state.alive) {
+      $result.innerHTML = '<span class="dead">Game over, press Reset</span>';
+    } else {
+      $result.textContent = '';
+    }
+  }
+
+  document.getElementById('reset').addEventListener('click', reset);
+  document.addEventListener('keydown', ev => {
+    if (ev.repeat) return;
+    const k = ev.key.toLowerCase();
+    if (k in KEYS) { ev.preventDefault(); move(KEYS[k]); }
+    else if (k === 'r') { ev.preventDefault(); reset(); }
+  });
+
+  buildPad();
+  draw();
+  connect();
+})();
+</script>
+</body>
+</html>

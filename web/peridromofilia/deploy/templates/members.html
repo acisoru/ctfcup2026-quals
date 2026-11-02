@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Члены клуба - Их метро{% endblock %}
+{% block body %}
+<h1>Члены клуба</h1>
+<p>Поиск по нику или домашней станции:</p>
+<form method="get" action="/members">
+  <p><input type="text" name="q" value="{{ q }}" size="30">
+     <input type="submit" value="Найти"></p>
+</form>
+{% if members %}
+<table class="list">
+  <tr><th>Ник</th><th>Право участия</th><th>Домашняя станция</th><th>Карт в коллекции</th></tr>
+  {% for m in members %}
+  <tr>
+    <td>{{ m.nickname or m.username }}</td>
+    <td>{{ m.card }}</td>
+    <td>{{ m.home_station or '' }}</td>
+    <td>{{ m.cards }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p class="muted">Ничего не найдено.</p>
+{% endif %}
+{% endblock %}

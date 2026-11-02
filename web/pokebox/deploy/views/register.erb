@@ -1,0 +1,7 @@
+<h1>Register</h1>
+<% if defined?(err_msg) && err_msg %><p class="error"><%= h err_msg %></p><% end %>
+<form method="post" action="/register" class="card">
+  <label>Trainer name <input name="username" required></label>
+  <label>Password <input name="password" type="password" required></label>
+  <button>Create account</button>
+</form>

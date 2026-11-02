@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MeowSim</string>
+    <string name="salt_hint">meowsim-v1</string>
+</resources>

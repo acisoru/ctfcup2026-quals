@@ -1,0 +1,4 @@
+# iCE40HX8K-CT256 (Lattice HX8K breakout board): 12 MHz oscillator and the FTDI UART.
+set_io clk      J3
+set_io uart_rxd B10
+set_io uart_txd B12

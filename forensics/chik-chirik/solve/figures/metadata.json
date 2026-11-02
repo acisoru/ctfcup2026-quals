@@ -1,0 +1,102 @@
+{
+  "baseline": {
+    "capture": "examples/demo.wav",
+    "sample_rate": 48000,
+    "samples_per_symbol": 2048,
+    "physical_symbols": 680,
+    "coded_data_symbols": 672,
+    "rs_blocks": 96,
+    "logical_frame_bits": 288,
+    "padding_labels": 0,
+    "preamble_errors": 0,
+    "corrected_symbols": 0,
+    "correction_histogram": {
+      "0": 96,
+      "1": 0,
+      "2": 0
+    },
+    "equations": 576,
+    "rank": 128,
+    "first_full_rank_logical_symbol": 64,
+    "initial_state_words_hex": [
+      "067369d3",
+      "2ef01fb4",
+      "6981255b",
+      "6e464b93"
+    ],
+    "crc32_hex": "cb9f9e85",
+    "crc_verified": true,
+    "payload_bytes": 32,
+    "payload_hex": "4354464355507b6368697270735f6c65616b5f6c696e6561725f73746174657d",
+    "payload_utf8": "CTFCUP{chirps_leak_linear_state}"
+  },
+  "rs_illustration": {
+    "capture": "examples/demo-corrupted.wav",
+    "sample_rate": 48000,
+    "samples_per_symbol": 2048,
+    "physical_symbols": 680,
+    "coded_data_symbols": 672,
+    "rs_blocks": 96,
+    "logical_frame_bits": 288,
+    "padding_labels": 0,
+    "preamble_errors": 0,
+    "corrected_symbols": 192,
+    "correction_histogram": {
+      "0": 0,
+      "1": 0,
+      "2": 96
+    },
+    "equations": 576,
+    "rank": 128,
+    "first_full_rank_logical_symbol": 64,
+    "initial_state_words_hex": [
+      "067369d3",
+      "2ef01fb4",
+      "6981255b",
+      "6e464b93"
+    ],
+    "crc32_hex": "cb9f9e85",
+    "crc_verified": true,
+    "payload_bytes": 32,
+    "payload_hex": "4354464355507b6368697270735f6c65616b5f6c696e6561725f73746174657d",
+    "payload_utf8": "CTFCUP{chirps_leak_linear_state}"
+  },
+  "rs_illustration_method": "provided capture",
+  "numpy_version": "2.5.3",
+  "matplotlib_version": "3.11.2",
+  "figure_formats": [
+    "png",
+    "svg"
+  ],
+  "noise_illustration": {
+    "capture": "examples/demo-noisy.wav",
+    "sample_rate": 48000,
+    "samples_per_symbol": 2048,
+    "physical_symbols": 680,
+    "coded_data_symbols": 672,
+    "rs_blocks": 96,
+    "logical_frame_bits": 288,
+    "padding_labels": 0,
+    "preamble_errors": 0,
+    "corrected_symbols": 9,
+    "correction_histogram": {
+      "0": 88,
+      "1": 7,
+      "2": 1
+    },
+    "equations": 576,
+    "rank": 128,
+    "first_full_rank_logical_symbol": 64,
+    "initial_state_words_hex": [
+      "067369d3",
+      "2ef01fb4",
+      "6981255b",
+      "6e464b93"
+    ],
+    "crc32_hex": "cb9f9e85",
+    "crc_verified": true,
+    "payload_bytes": 32,
+    "payload_hex": "4354464355507b6368697270735f6c65616b5f6c696e6561725f73746174657d",
+    "payload_utf8": "CTFCUP{chirps_leak_linear_state}"
+  }
+}

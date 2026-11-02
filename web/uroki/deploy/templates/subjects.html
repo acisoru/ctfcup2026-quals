@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Предметы{% endblock %}
+{% block content %}
+<div class="page-head">
+<h1>Предметы</h1>
+</div>
+{% if rows %}
+<table class="lessons">
+<thead><tr><th>Предмет</th><th>Уроков всего</th><th>Запланировано</th></tr></thead>
+<tbody>
+{% for r in rows %}
+<tr>
+<td class="t-title">{{ r.subject }}</td>
+<td class="muted num">{{ r.total }}</td>
+<td class="muted num">{{ r.upcoming or 0 }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<div class="empty"><p class="lead">Нет данных</p></div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Моя коллекция - Их метро{% endblock %}
+{% block body %}
+<h1>Моя коллекция</h1>
+{% if rows %}
+<p>Всего карт: <b>{{ rows | length }}</b> из {{ total }} троек каталога.{% if summary %}<br>
+По видам: {{ summary }}.{% endif %}</p>
+<table class="list">
+  <tr><th>№</th><th>Название</th><th>Тип</th><th>Год</th><th>Тираж</th><th>Добавлена</th><th></th></tr>
+  {% for r in rows %}
+  <tr>
+    <td>{{ r.n }}</td>
+    <td>{{ r.name }}</td>
+    <td>{{ r.kind }}</td>
+    <td>{{ r.year or '' }}</td>
+    <td>{{ r.size }}</td>
+    <td class="muted">{{ r.added.strftime('%d.%m.%Y') }}</td>
+    <td>
+      <form method="post" action="/collection/remove/{{ r.n }}" class="inline">
+        <input type="submit" value="убрать">
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>В вашей коллекции пока нет ни одной карты. Откройте <a href="/catalog">каталог</a> и отметьте
+тройки, которые у вас есть.</p>
+{% endif %}
+{% endblock %}

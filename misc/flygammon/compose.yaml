@@ -1,0 +1,7 @@
+services:
+  daemon:
+    build:
+      context: .
+      dockerfile: challenge/Dockerfile
+    ports:
+      - "8545:8545"

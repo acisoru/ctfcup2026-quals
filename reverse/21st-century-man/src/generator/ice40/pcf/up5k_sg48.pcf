@@ -1,0 +1,5 @@
+# iCE40UP5K-SG48 (e.g. iCEBreaker / UPduino): 12 MHz oscillator pin and the FTDI UART.
+# Only the names matter to the simulation harness; the pins matter to a real board.
+set_io clk      35
+set_io uart_rxd  6
+set_io uart_txd  9

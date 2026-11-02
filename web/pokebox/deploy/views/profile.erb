@@ -1,0 +1,18 @@
+<div class="trainer-card">
+  <h1>@<%= h @profile["username"] %></h1>
+  <% unless @profile["bio"].to_s.empty? %>
+    <p class="box-desc"><%= cm(@profile["bio"]) %></p>
+  <% else %>
+    <p class="muted">This trainer hasn't written a bio yet.</p>
+  <% end %>
+</div>
+<h2>Shared boxes</h2>
+<ul class="feed">
+  <% @pboxes.each do |b| %>
+    <li>
+      <a href="/box/<%= b["id"] %>"><strong><%= b["title"].to_s.empty? ? h(b["trainer_name"]) : cm(b["title"]) %></strong></a>
+      <span class="muted"><%= h b["created_at"] %></span>
+    </li>
+  <% end %>
+  <% if @pboxes.empty? %><li class="muted">No shared boxes yet.</li><% end %>
+</ul>

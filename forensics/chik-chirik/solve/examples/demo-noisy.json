@@ -1,0 +1,35 @@
+{
+  "capture": "examples/demo-noisy.wav",
+  "sample_rate": 48000,
+  "samples_per_symbol": 2048,
+  "physical_symbols": 680,
+  "coded_data_symbols": 672,
+  "rs_blocks": 96,
+  "logical_frame_bits": 288,
+  "padding_labels": 0,
+  "preamble_errors": 0,
+  "corrected_symbols": 9,
+  "correction_histogram": {
+    "0": 88,
+    "1": 7,
+    "2": 1
+  },
+  "equations": 576,
+  "rank": 128,
+  "first_full_rank_logical_symbol": 64,
+  "initial_state_words_hex": [
+    "067369d3",
+    "2ef01fb4",
+    "6981255b",
+    "6e464b93"
+  ],
+  "crc32_hex": "cb9f9e85",
+  "crc_verified": true,
+  "payload_bytes": 32,
+  "payload_hex": "4354464355507b6368697270735f6c65616b5f6c696e6561725f73746174657d",
+  "payload_utf8": "CTFCUP{chirps_leak_linear_state}",
+  "demonstration_method": "Add independent /dev/urandom uniform noise to demo PCM, then clip and quantize; not a transmitter noise option.",
+  "added_noise_peak": 3.0,
+  "clipped_sample_fraction": 0.6661944221047794,
+  "generation_attempts": 1
+}

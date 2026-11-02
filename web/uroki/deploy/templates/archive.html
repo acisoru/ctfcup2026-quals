@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Архив{% endblock %}
+{% block content %}
+<div class="page-head">
+<h1>Архив</h1>
+</div>
+{% set recent = lessons[-50:] %}
+{% if recent %}
+<table class="lessons">
+<thead>
+<tr>
+<th class="t-title">Тема</th>
+<th class="t-subject">Предмет</th>
+<th>Учитель</th>
+<th>Время (UTC)</th>
+<th>Статус</th>
+</tr>
+</thead>
+<tbody>
+{% for l in recent %}
+{% if l.status != 'planned' %}
+<tr class="{{ 'done' if l.status == 'done' else 'cancelled' }}">
+<td class="t-title"><a href="{{ url_for('lesson_card', id=l.id) }}">{{ l.title }}</a></td>
+<td class="t-subject muted">{{ l.subject }}</td>
+<td class="muted">{{ l.teacher }}</td>
+<td class="muted num">{{ l.scheduled_at | fmt }}</td>
+<td><span class="tag {{ 'done' if l.status == 'done' else 'cancelled' }}">{{ 'прошёл' if l.status == 'done' else 'отменён' }}</span></td>
+</tr>
+{% endif %}
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<div class="empty">Архив пуст.</div>
+{% endif %}
+{% endblock %}

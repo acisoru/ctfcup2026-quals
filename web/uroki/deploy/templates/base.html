@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}Электронный журнал{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="top">
+<a class="brand" href="{{ url_for('index') }}">
+<span class="name">Электронный журнал</span>
+</a>
+<a class="btn" href="{{ url_for('new_lesson') }}">Новый урок</a>
+</header>
+<nav class="nav">
+<a href="{{ url_for('index') }}" class="{{ 'active' if request.endpoint == 'index' }}">Уроки</a>
+<a href="{{ url_for('archive') }}" class="{{ 'active' if request.endpoint == 'archive' }}">Архив</a>
+<a href="{{ url_for('teachers') }}" class="{{ 'active' if request.endpoint == 'teachers' }}">Учителя</a>
+<a href="{{ url_for('subjects') }}" class="{{ 'active' if request.endpoint == 'subjects' }}">Предметы</a>
+</nav>
+<div class="rule"></div>
+<main>
+{% block content %}{% endblock %}
+</main>
+</body>
+</html>

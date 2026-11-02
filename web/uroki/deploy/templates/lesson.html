@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}{{ lesson.title }}{% endblock %}
+{% block content %}
+<div class="sheet pad">
+<div class="card-head">
+<h1>{{ lesson.title | safe }}</h1>
+<span class="tag {{ 'done' if lesson.status == 'done' else ('cancelled' if lesson.status == 'cancelled' else 'planned') }}">{{ {'planned': 'запланирован', 'done': 'прошёл', 'cancelled': 'отменён'}[lesson.status] }}</span>
+</div>
+<dl class="detail">
+<div><dt>Предмет</dt><dd>{{ lesson.subject }}</dd></div>
+<div><dt>Учитель</dt><dd>{{ lesson.teacher }}</dd></div>
+<div><dt>Время (UTC)</dt><dd>{{ lesson.scheduled_at | fmt }}</dd></div>
+<div><dt>Материалы</dt><dd class="attachment">{% if lesson.file_name %}<a href="{{ url_for('download_attachment', id=lesson.id) }}">{{ lesson.file_name }}</a>{% else %}<span class="muted">нет вложения</span>{% endif %}</dd></div>
+<div><dt>Домашнее задание</dt><dd>{% if lesson.homework %}{{ lesson.homework }}{% else %}<span class="muted">не задано</span>{% endif %}</dd></div>
+</dl>
+</div>
+<div class="actions-row">
+<a class="btn" href="{{ url_for('edit_lesson_form', id=lesson.id) }}">Редактировать</a>
+<a class="btn" href="{{ url_for('lesson_ics', id=lesson.id) }}">Экспорт в календарь</a>
+{% if lesson.status == 'planned' %}
+<form method="post" action="{{ url_for('cancel_lesson', id=lesson.id) }}"><button class="btn" type="submit">Отменить урок</button></form>
+<form method="post" action="{{ url_for('delete_lesson', id=lesson.id) }}"><button class="btn" type="submit">Удалить</button></form>
+{% endif %}
+</div>
+<form method="post" action="{{ url_for('set_homework', id=lesson.id) }}" class="sheet pad form hw-form">
+<div class="field">
+<label>Домашнее задание</label>
+<input name="homework" value="{{ lesson.homework or '' }}" placeholder="§ 12, задачи 3-5">
+</div>
+<button class="btn" type="submit">Записать</button>
+</form>
+<form method="post" action="{{ url_for('upload_attachment', id=lesson.id) }}" enctype="multipart/form-data" class="upload">
+<span class="hint">Прикрепить материалы</span>
+<input type="file" name="file" required>
+<button class="btn" type="submit">Загрузить</button>
+</form>
+<div class="sheet pad comments">
+<h2>Комментарии</h2>
+{% if comments %}
+<ul class="comment-list">
+{% for c in comments %}
+<li>
+<div class="c-head"><strong>{{ c.author }}</strong> <span class="muted">{{ c.created_at | fmt }}</span>
+<form method="post" action="{{ url_for('delete_comment', id=c.id) }}"><button class="link-btn" type="submit">удалить</button></form></div>
+<p>{{ c.body }}</p>
+</li>
+{% endfor %}
+</ul>
+{% else %}
+<p class="muted">Комментариев пока нет.</p>
+{% endif %}
+<form method="post" action="{{ url_for('add_comment', id=lesson.id) }}" class="form">
+<div class="row">
+<div class="field"><label>Автор</label><input name="author" required></div>
+</div>
+<div class="field"><label>Комментарий</label><input name="body" required></div>
+<button class="btn" type="submit">Отправить</button>
+</form>
+</div>
+<a class="link-back" href="{{ url_for('index') }}">← К списку уроков</a>
+{% endblock %}

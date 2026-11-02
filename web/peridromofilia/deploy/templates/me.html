@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Профиль - Их метро{% endblock %}
+{% block body %}
+<h1>Карта члена клуба</h1>
+<div class="box">
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr><td><b>Логин:</b></td><td>{{ d.username }}</td></tr>
+    <tr><td><b>Ник:</b></td><td>{{ d.nickname or '&mdash;' | safe }}</td></tr>
+    <tr><td><b>Домашняя станция:</b></td><td>{{ d.home_station or '&mdash;' | safe }}</td></tr>
+    <tr><td><b>Статус:</b></td><td>{% if d.badge %}<span class="gold">{{ d.badge }}</span>{% else %}рядовой член клуба{% endif %}</td></tr>
+    <tr><td><b>Право участия:</b></td><td>{{ d.card }}</td></tr>
+  </table>
+  <p class="muted">Поездок в журнале: {{ trips_total }} &middot; карт в коллекции: <a href="/collection">{{ cards }}</a></p>
+</div>
+
+<h2>Золотая карта ветерана</h2>
+<p>Пять лет в клубе &mdash; и вы получите золотую карту. Обновите запись, если считаете,
+что заслужили.</p>
+<p><button onclick="gold()">Оформить золотую карту</button> <span id="goldres" class="muted"></span></p>
+
+<h2>Журнал поездок</h2>
+<form method="post" action="/api/trip">
+  <p>Откуда: <input type="text" name="from" size="16">
+     Куда: <input type="text" name="to" size="16">
+     <input type="submit" value="Записать поездку"></p>
+</form>
+{% if trips %}
+<table class="list">
+  <tr><th>Дата</th><th>Маршрут</th></tr>
+  {% for t in trips %}
+  <tr><td class="muted">{{ t.created.strftime('%d.%m.%Y') }}</td><td>{{ t.station_from }} &rarr; {{ t.station_to }}</td></tr>
+  {% endfor %}
+</table>
+{% else %}
+<p class="muted">Журнал пуст.</p>
+{% endif %}
+
+<h2>Настройки профиля</h2>
+<form method="post" action="/api/profile" onsubmit="return saveProfile(event)">
+  <p>Ник:<br><input type="text" name="nickname" id="nickname" size="30" value="{{ d.nickname or '' }}"></p>
+  <p>Домашняя станция:<br><input type="text" name="home_station" id="home_station" size="30" value="{{ d.home_station or '' }}"></p>
+  <p><input type="submit" value="Сохранить"> <span id="profres" class="muted"></span></p>
+</form>
+
+<script>
+function saveProfile(ev) {
+  ev.preventDefault();
+  var body = {
+    nickname: document.getElementById('nickname').value,
+    home_station: document.getElementById('home_station').value
+  };
+  fetch('/api/profile', {method: 'PATCH', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)})
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      document.getElementById('profres').textContent = j.ok ? 'сохранено' : j.error;
+      if (j.ok) setTimeout(function () { location.reload(); }, 700);
+    })
+    .catch(function () { document.getElementById('profres').textContent = 'ошибка запроса'; });
+  return false;
+}
+function gold() {
+  fetch('/api/gold', {method: 'POST'})
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      document.getElementById('goldres').textContent = j.ok ? 'оформлено: ' + j.badge : j.error;
+      if (j.ok) setTimeout(function () { location.reload(); }, 900);
+    });
+}
+</script>
+{% endblock %}

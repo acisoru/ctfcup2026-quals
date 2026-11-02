@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Запечатанные настройки</string>
+    <string name="status_checking_environment">Проверяем устройство доставки...</string>
+    <string name="status_parcel_sealed">Посылка запечатана. Назначенных доставок в этом окне нет.</string>
+    <string name="status_key_ready">Сервис допуска ответил. Доставка ожидает окна выдачи.</string>
+    <string name="status_key_missing">Сначала подтвердите маршрут.</string>
+    <string name="status_untrusted_device">Устройство не доверено. Доставка временно недоступна.</string>
+    <string name="status_sync_failed">Синхронизация не удалась. Попробуйте снова с чистого устройства доставки.</string>
+    <string name="screen_title">Пульт доставки</string>
+    <string name="screen_subtitle">Защищенный маршрут #17</string>
+    <string name="parcel_title">Сейф посылки</string>
+    <string name="parcel_hint">Маршрут ожидает подтверждения перед выдачей заданий.</string>
+    <string name="action_sync">Синхронизировать</string>
+    <string name="action_check_server">Проверить связь</string>
+    <string name="action_check_key">Проверить допуск</string>
+    <string name="action_show_local">Состояние</string>
+    <string name="action_clear">Сбросить</string>
+    <string name="label_server">Связь</string>
+    <string name="label_root">Статус устройства</string>
+    <string name="label_nonce">Маршрут</string>
+    <string name="label_parcel">Хранилище</string>
+    <string name="value_unknown">неизвестно</string>
+    <string name="value_connection_ready">подтверждена</string>
+    <string name="value_route_ready">подтвержден</string>
+    <string name="value_clean">доступ разрешен</string>
+    <string name="value_blocked">доступ ограничен</string>
+    <string name="value_parcel_saved">данные маршрута сохранены</string>
+    <string name="value_parcel_missing">данных маршрута пока нет</string>
+    <string name="value_parcel_verified">маршрут проверен</string>
+    <string name="log_ready">Готов к проверке маршрута.</string>
+    <string name="log_server_ok">Связь установлена. Канал подтвержден.</string>
+    <string name="log_key_ok">Сервис допуска подтвердил маршрут.</string>
+    <string name="log_key_missing">Нет сохраненного маршрута для проверки допуска.</string>
+    <string name="log_untrusted_device">Проверка остановлена: этому устройству нельзя выдать маршрут.</string>
+    <string name="log_local_cleared">Локальные данные очищены.</string>
+</resources>

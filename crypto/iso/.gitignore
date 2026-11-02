@@ -1,0 +1,3 @@
+*.sage.py
+bin/ecm
+build-info.txt

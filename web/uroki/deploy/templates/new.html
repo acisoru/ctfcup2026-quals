@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Новый урок{% endblock %}
+{% block content %}
+<div class="page-head">
+<h1>Новый урок</h1>
+</div>
+<form method="post" action="{{ url_for('create_lesson') }}" class="sheet pad form">
+<div class="field">
+<label>Тема</label>
+<input name="title" placeholder="Квадратные уравнения" required>
+</div>
+<div class="row">
+<div class="field">
+<label>Предмет</label>
+<input name="subject" placeholder="Алгебра" required>
+</div>
+<div class="field">
+<label>Учитель</label>
+<input name="teacher" placeholder="Иванова А. П." required>
+</div>
+</div>
+<div class="row">
+<div class="field">
+<label>Дата</label>
+<input type="date" name="date" required>
+</div>
+<div class="field">
+<label>Время (UTC)</label>
+<input type="time" name="time" required>
+</div>
+</div>
+<div class="actions">
+<button class="btn solid" type="submit">Создать урок</button>
+<a href="{{ url_for('index') }}">Отмена</a>
+</div>
+</form>
+{% endblock %}

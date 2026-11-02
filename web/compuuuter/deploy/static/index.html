@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>compuuuter</title>
+<link rel="icon" href="data:," />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">🧮</span>
+    <div>
+      <h1>compuuuter</h1>
+      <p class="tag">snap number blocks together &amp; run the graph</p>
+    </div>
+  </div>
+  <div class="actions">
+    <button id="btn-run" class="btn primary">▶ Run graph</button>
+    <button id="btn-clear" class="btn">Clear</button>
+    <button id="btn-json" class="btn">JSON…</button>
+  </div>
+</header>
+
+<main class="layout">
+  <aside class="palette">
+    <h2>Blocks</h2>
+    <p class="hint">Click to drop a block onto the stage.</p>
+    <div id="palette-list"></div>
+  </aside>
+
+  <section class="stage-wrap">
+    <div id="stage" class="stage">
+      <svg id="wires" class="wires"></svg>
+    </div>
+    <div class="legend">
+      Drag a block by its header. Drag from the ◉ output dot to an input slot to
+      wire blocks together. Each block’s result shows up after you run.
+    </div>
+  </section>
+</main>
+
+<div id="status" class="status"></div>
+
+<dialog id="json-dialog">
+  <form method="dialog">
+    <h3>Graph JSON</h3>
+    <textarea id="json-area" spellcheck="false"></textarea>
+    <menu>
+      <button value="load" class="btn primary">Load</button>
+      <button value="cancel" class="btn">Close</button>
+    </menu>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>

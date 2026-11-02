@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Обмены - Их метро{% endblock %}
+{% block body %}
+<h1>Доска обменов</h1>
+<p>Предлагайте карту из своей коллекции на тройку, которую ищете. Договаривайтесь
+лично на воскресной встрече.</p>
+
+<h2>Новое предложение</h2>
+{% if mine %}
+<form method="post" action="/api/trade">
+  <table border="0" cellpadding="3" cellspacing="0">
+    <tr>
+      <td>Предлагаю:</td>
+      <td><select name="offer">
+        {% for c in mine %}
+        <option value="{{ c.n }}">№{{ c.n }} &mdash; {{ c.name }}</option>
+        {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td>Хочу тройку №:</td>
+      <td><input type="text" name="want" size="8"> <span class="muted">(номер из <a href="/catalog" target="_blank">каталога</a>)</span></td>
+    </tr>
+    <tr>
+      <td>Комментарий:</td>
+      <td><input type="text" name="note" size="40" maxlength="200"></td>
+    </tr>
+    <tr><td></td><td><input type="submit" value="Опубликовать"></td></tr>
+  </table>
+</form>
+{% else %}
+<p class="muted">Чтобы предложить обмен, сначала отметьте хотя бы одну карту в
+<a href="/collection">коллекции</a>.</p>
+{% endif %}
+
+<h2>Предложения клуба</h2>
+{% if trades %}
+<table class="list">
+  <tr><th>Участник</th><th>Предлагает</th><th>Хочет</th><th>Комментарий</th><th>Дата</th><th></th></tr>
+  {% for t in trades %}
+  <tr>
+    <td>{{ t.nickname }}{% if t.mine %} (вы){% endif %}</td>
+    <td>{{ t.offer }}</td>
+    <td>{{ t.want }}</td>
+    <td>{{ t.note or '' }}</td>
+    <td class="muted">{{ t.created.strftime('%d.%m.%Y') }}</td>
+    <td>
+      {% if t.mine %}
+      <form method="post" action="/api/trade/remove" class="inline">
+        <input type="hidden" name="id" value="{{ t.id }}">
+        <input type="submit" value="снять">
+      </form>
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p class="muted">Предложений пока нет.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,8 @@
+<h1>Trainer settings</h1>
+<form method="post" action="/settings" class="card">
+  <label>Bio <input name="bio" maxlength="300" value="<%= h current_user["bio"] %>"
+         placeholder="Say hi! Supports card-markup: [b] [i] [shiny] [sparkle] [fire]"></label>
+  <button>Save bio</button>
+</form>
+<p class="muted">Your bio shows on your public profile at
+   <a href="/u/<%= h current_user["username"] %>">/u/<%= h current_user["username"] %></a>.</p>

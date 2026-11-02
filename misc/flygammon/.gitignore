@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+challenge/project/out/
+challenge/project/cache/
+challenge/project/broadcast/
+daemon/target/
+flygammon/target/
+handout/model-src/target/
+handout/oracle-daemon/target/

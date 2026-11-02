@@ -1,0 +1,58 @@
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codex · Библия с заметками на полях</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <button id="tocBtn" class="btn ghost">Оглавление</button>
+  <div class="brand">Codex<span class="brand-sub">Библия с заметками на полях</span></div>
+  <div class="topbar-right">
+    <span id="stats" class="stats"></span>
+    <button id="visitBtn" class="btn ghost" title="Отправить текущую ссылку боту-чтецу">Боту</button>
+    <button id="modeBtn" class="btn ghost">Приватный режим</button>
+    <button id="prevBtn" class="btn" title="Назад (←)">‹</button>
+    <button id="nextBtn" class="btn" title="Вперёд (→)">›</button>
+  </div>
+</header>
+
+<main class="scene">
+  <div class="book-stand">
+    <div id="book" class="book">
+      <div class="spine"></div>
+      <div id="pageL" class="page left"></div>
+      <div id="pageR" class="page right"></div>
+      <div id="leafLayer" class="leaf-layer"></div>
+      <button id="cornerL" class="corner-hotspot left" title="Назад">‹</button>
+      <button id="cornerR" class="corner-hotspot right" title="Вперёд">›</button>
+    </div>
+    <div id="positionLabel" class="position-label"></div>
+  </div>
+</main>
+
+<aside id="toc" class="toc-drawer" hidden>
+  <div id="tocBackdrop" class="toc-backdrop"></div>
+  <div class="toc-inner">
+    <div class="toc-head"><b>Оглавление</b><button id="tocClose" class="btn ghost small">✕</button></div>
+    <input id="tocSearch" type="search" placeholder="Поиск книги…" autocomplete="off">
+    <div id="tocBody" class="toc-body"></div>
+  </div>
+</aside>
+
+<div id="noteModal" class="note-modal" hidden>
+  <div class="note-modal-card">
+    <div class="note-modal-head"><b id="noteModalTitle">Заметка на полях</b><button id="noteClose" class="btn ghost small">✕</button></div>
+    <div id="noteModalRef" class="note-modal-ref"></div>
+    <div id="notePreview" class="note-preview"></div>
+    <label><span>Имя</span><input id="noteAuthor" maxlength="40" placeholder="как вас записать?"></label>
+    <label><span>На полях</span><textarea id="noteText" maxlength="2000" rows="4" placeholder="ваши мысли на полях…"></textarea></label>
+    <div class="note-modal-actions"><span id="noteError" class="note-error"></span><button id="noteSubmit" class="btn solid">Оставить заметку</button></div>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+<script src="/app.js"></script>
+</body>
+</html>

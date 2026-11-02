@@ -1,0 +1,52 @@
+<div class="trainer-card">
+  <h1><%= @box["title"].to_s.empty? ? "#{h @box["trainer_name"]}'s box" : cm(@box["title"]) %></h1>
+  <p class="muted">shared by <a href="/u/<%= h @owner %>">@<%= h @owner %></a></p>
+
+  <% unless @box["description"].to_s.empty? %>
+    <p class="box-desc"><%= cm(@box["description"]) %></p>
+  <% end %>
+
+  <dl class="trainer-stats">
+    <div><dt>Trainer</dt><dd><%= h @box["trainer_name"] %></dd></div>
+    <div><dt>ID No.</dt><dd><%= format("%05d", @box["trainer_id"].to_i) %></dd></div>
+    <div><dt>Gender</dt><dd><%= h @box["gender"] %></dd></div>
+    <div><dt>Play time</dt><dd><%= format("%d:%02d:%02d", @box["play_h"].to_i, @box["play_m"].to_i, @box["play_s"].to_i) %></dd></div>
+    <div><dt>Party</dt><dd><%= @party.length %>/6</dd></div>
+  </dl>
+
+  <h2>Party</h2>
+  <ol class="party-list">
+    <% @party.each do |m| %>
+      <li>
+        <span class="nick"><%= h m["nick"] %></span>
+        <span class="lv">Lv<%= m["level"] %></span>
+        <span class="hp">HP <%= m["hp"] %>/<%= m["max_hp"] %></span>
+      </li>
+    <% end %>
+  </ol>
+
+  <h2>Team chant</h2>
+  <p class="muted">Your Pokémon's nicknames, shouted together as the team's battle cry:</p>
+  <p class="card-line"><%= @card %></p>
+</div>
+
+<% if current_user && current_user["id"] == @box["user_id"] && @box["shared"] != 1 %>
+  <form method="post" action="/box/<%= @box["id"] %>/share">
+    <button>Share to the feed</button>
+  </form>
+<% end %>
+
+<h2>Comments</h2>
+<ul class="comments">
+  <% @comments.each do |c| %>
+    <li><strong>@<%= h c["username"] %></strong> <%= h c["body"] %></li>
+  <% end %>
+  <% if @comments.empty? %><li class="muted">No comments yet.</li><% end %>
+</ul>
+
+<% if current_user %>
+  <form method="post" action="/box/<%= @box["id"] %>/comment" class="card">
+    <label>Say something <input name="body" maxlength="500" required></label>
+    <button>Post</button>
+  </form>
+<% end %>

@@ -1,0 +1,10 @@
+services:
+  ghostvector:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    expose:
+      - "2222"
+    security_opt:
+      - seccomp=unconfined

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Редактирование{% endblock %}
+{% block content %}
+<div class="page-head">
+<h1>Редактирование урока #{{ lesson.id }}</h1>
+</div>
+<form method="post" action="{{ url_for('edit_lesson', id=lesson.id) }}" class="sheet pad form">
+<div class="field">
+<label>Тема</label>
+<input name="title" value="{{ lesson.title }}" required>
+</div>
+<div class="row">
+<div class="field">
+<label>Предмет</label>
+<input name="subject" value="{{ lesson.subject }}" required>
+</div>
+<div class="field">
+<label>Учитель</label>
+<input name="teacher" value="{{ lesson.teacher }}" required>
+</div>
+</div>
+<div class="row">
+<div class="field">
+<label>Дата</label>
+<input type="date" name="date" value="{{ lesson.scheduled_at | isodate }}" required>
+</div>
+<div class="field">
+<label>Время (UTC)</label>
+<input type="time" name="time" value="{{ lesson.scheduled_at | isotime }}" required>
+</div>
+</div>
+<div class="actions">
+<button class="btn solid" type="submit">Сохранить</button>
+<a href="{{ url_for('lesson_card', id=lesson.id) }}">Отмена</a>
+</div>
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+[package]
+name = "myfs"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+fuser = { version = "0.15", default-features = false }
+getrandom = "0.4.3"
+libc = "0.2.191"
+rand = "0.10.3"
+rand_chacha = "0.10.0"
+sha2 = "0.11.1"

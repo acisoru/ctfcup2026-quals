@@ -1,0 +1,21 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    environment:
+      FLAG: ${FLAG:-ctfcup{p4rcel_v1_unl0ck3d}}
+      TASK_KEY_B64: ${TASK_KEY_B64:-MDEyMzQ1Njc4OWFiY2RlZg==}
+      TASK_SESSION_SECRET: ${TASK_SESSION_SECRET:-sealed-prefs-development-session-secret}
+      CHALLENGE_TTL_SECONDS: ${CHALLENGE_TTL_SECONDS:-900}
+    expose:
+      - "8000"
+
+  nginx:
+    image: nginx:1.27-alpine
+    depends_on:
+      - backend
+    ports:
+      - "${HTTPS_PORT:-8443}:443"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./backend/certs:/etc/nginx/certs:ro

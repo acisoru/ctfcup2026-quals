@@ -1,0 +1,13 @@
+[package]
+name = "cybercup"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+eframe = { version = "=0.32.3", default-features = false, features = ["default_fonts", "wgpu"] }
+wgpu = { version = "=25.0.2", default-features = false, features = ["dx12", "vulkan", "wgsl"] }
+rodio = { version = "=0.23.0", default-features = false, features = ["playback", "mp3"] }
+bytemuck = "1.23"
+
+[build-dependencies]
+cc = "=1.9.0"

@@ -1,0 +1,21 @@
+<h1>My boxes</h1>
+<% if defined?(err_msg) && err_msg %><p class="error"><%= h err_msg %></p><% end %>
+<form method="post" action="/boxes" enctype="multipart/form-data" class="card">
+  <label>Box title <input name="title" maxlength="60" placeholder="e.g. [shiny]Living Dex[/shiny]"></label>
+  <label>Description <input name="description" maxlength="300" placeholder="Supports card-markup: [b] [i] [shiny] [sparkle] [fire] [pokeball] [heart]"></label>
+  <label>Gen III save (.sav) <input type="file" name="save" required></label>
+  <button>Import box</button>
+</form>
+<p class="muted">Tip: titles and descriptions support <strong>card-markup</strong> —
+   tags like <code>[b]bold[/b]</code>, <code>[shiny]…[/shiny]</code>,
+   <code>[sparkle]</code>, <code>[pokeball]</code>. Set your trainer
+   <a href="/settings">bio</a> too.</p>
+<ul class="feed">
+  <% @boxes.each do |b| %>
+    <li>
+      <a href="/box/<%= b["id"] %>"><strong><%= b["title"].to_s.empty? ? h(b["trainer_name"]) : cm(b["title"]) %></strong></a>
+      <span class="muted"><%= b["shared"] == 1 ? "shared" : "private" %> · <%= h b["created_at"] %></span>
+    </li>
+  <% end %>
+  <% if @boxes.empty? %><li class="muted">No boxes yet — import a save above.</li><% end %>
+</ul>

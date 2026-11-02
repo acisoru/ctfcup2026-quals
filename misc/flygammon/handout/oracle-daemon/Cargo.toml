@@ -1,0 +1,19 @@
+[package]
+name = "flygammon-daemon"
+version = "0.1.0"
+edition = "2021"
+description = "Off-chain fruit-fly oracle: posts proven dice and plays the fly's 2-ply moves"
+
+[dependencies]
+flygammon = { path = "../model-src" }
+burn = { version = "0.21", features = ["ndarray"] }
+alloy = { version = "1", features = ["full"] }
+tokio = { version = "1", features = ["full"] }
+num-bigint = "0.4"
+num-traits = "0.2"
+sha3 = "0.10"
+rand = "0.8"
+anyhow = "1"
+
+[profile.release]
+opt-level = 3

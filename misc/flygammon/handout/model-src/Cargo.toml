@@ -1,0 +1,16 @@
+[package]
+name = "flygammon"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "lib.rs"
+
+[features]
+default = ["cpu"]
+cpu = ["burn/ndarray"]
+metal = ["burn/metal"]
+
+[dependencies]
+burn = "0.21"
+rand = "0.8"

@@ -1,0 +1,46 @@
+{
+  "source_hashes": {
+    "transmitter.jai": "eb558a5b6e396774b2102f9bbd88625c83087c6f4a9acf632cd1874e08339e04",
+    "protocol.jai": "dda883a359ce91b133f709cb24b00e2bc05098bfce125eb5813d2290e42e4991",
+    "fec.jai": "c598b012c74f8d6e9ba193616f12083aeb2eb53b3e542c9f9fc28a842b7d69bd"
+  },
+  "fresh_source_captures": [
+    {
+      "payload": "12345678",
+      "payload_bytes": 8,
+      "padding_labels": 0,
+      "rank": 128,
+      "crc_verified": true
+    },
+    {
+      "payload": "123456789",
+      "payload_bytes": 9,
+      "padding_labels": 1,
+      "rank": 128,
+      "crc_verified": true
+    },
+    {
+      "payload": "1234567890",
+      "payload_bytes": 10,
+      "padding_labels": 2,
+      "rank": 128,
+      "crc_verified": true
+    },
+    {
+      "payload": "CTFCUP{fresh_source_validation}",
+      "payload_bytes": 31,
+      "padding_labels": 2,
+      "rank": 128,
+      "crc_verified": true
+    },
+    {
+      "payload": "CTFCUP{unicode_\u043f\u0440\u0438\u0432\u0435\u0442}",
+      "payload_bytes": 28,
+      "padding_labels": 2,
+      "rank": 128,
+      "crc_verified": true
+    }
+  ],
+  "solver_tests_passed": 13,
+  "figure_pairs": 8
+}

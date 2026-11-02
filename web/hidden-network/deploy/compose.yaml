@@ -1,0 +1,10 @@
+services:
+  challenge:
+    image: femtocell-ctf-qemu:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080"
+    devices:
+      - "/dev/kvm:/dev/kvm"

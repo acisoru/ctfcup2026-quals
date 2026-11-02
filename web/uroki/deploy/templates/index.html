@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Уроки{% endblock %}
+{% block content %}
+<div class="page-head">
+<h1>Уроки</h1>
+<span class="sub">всего: {{ lessons|length }} (запланировано {{ counts.get('planned', 0) }}, прошло {{ counts.get('done', 0) }}, отменено {{ counts.get('cancelled', 0) }})</span>
+</div>
+<form method="get" action="{{ url_for('index') }}" class="filters">
+<input name="q" value="{{ q }}" placeholder="Поиск по теме, предмету, учителю">
+<select name="status">
+<option value="">любой статус</option>
+{% for s in ['planned', 'done', 'cancelled'] %}
+<option value="{{ s }}" {{ 'selected' if status == s }}>{{ {'planned': 'запланирован', 'done': 'прошёл', 'cancelled': 'отменён'}[s] }}</option>
+{% endfor %}
+</select>
+<select name="subject">
+<option value="">любой предмет</option>
+{% for s in subjects %}
+<option value="{{ s }}" {{ 'selected' if subject == s }}>{{ s }}</option>
+{% endfor %}
+</select>
+<button class="btn" type="submit">Найти</button>
+</form>
+{% if lessons %}
+<table class="lessons">
+<thead>
+<tr>
+<th class="t-title">Тема</th>
+<th class="t-subject">Предмет</th>
+<th>Учитель</th>
+<th>Время (UTC)</th>
+<th>Статус</th>
+</tr>
+</thead>
+<tbody>
+{% for l in lessons %}
+<tr class="{{ 'done' if l.status == 'done' else ('cancelled' if l.status == 'cancelled' else 'planned') }}">
+<td class="t-title"><a href="{{ url_for('lesson_card', id=l.id) }}">{{ l.title }}</a></td>
+<td class="t-subject muted">{{ l.subject }}</td>
+<td class="muted">{{ l.teacher }}</td>
+<td class="muted num">{{ l.scheduled_at | fmt }}</td>
+<td><span class="tag {{ 'done' if l.status == 'done' else ('cancelled' if l.status == 'cancelled' else 'planned') }}">{{ {'planned': 'запланирован', 'done': 'прошёл', 'cancelled': 'отменён'}[l.status] }}</span></td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% else %}
+<div class="empty">Нет уроков, попадающих под условия отбора.</div>
+{% endif %}
+{% endblock %}

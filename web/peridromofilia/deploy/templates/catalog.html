@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Каталог - Их метро{% endblock %}
+{% block body %}
+<h1>Каталог троек</h1>
+<p>По вашему запросу найдено троек: <b>{{ count }}</b> (всего в картотеке {{ total }}).
+Отметьте карты, которые есть у вас, кнопкой в строке.</p>
+
+<form method="get" action="/catalog">
+  <table border="0" cellpadding="2" cellspacing="0">
+    <tr>
+      <td>Название:</td>
+      <td><input type="text" name="q" value="{{ q }}" size="40"></td>
+      <td>Тип:</td>
+      <td><select name="kind">
+        <option value="">- любой -</option>
+        {% for k in kinds %}
+        <option value="{{ k }}"{% if k == kind %} selected{% endif %}>{{ k }}</option>
+        {% endfor %}
+      </select></td>
+      <td>Год:</td>
+      <td><input type="text" name="year" value="{{ year }}" size="5"></td>
+      <td><input type="submit" value="Найти"></td>
+    </tr>
+  </table>
+</form>
+
+{% if me %}
+<table class="list">
+  <tr><th><a href="/catalog?q={{ q | urlencode }}&kind={{ kind }}&year={{ year }}&sort=n">№</a></th><th>Название</th><th>Тип</th><th><a href="/catalog?q={{ q | urlencode }}&kind={{ kind }}&year={{ year }}&sort=-year">Год</a> <a href="/catalog?q={{ q | urlencode }}&kind={{ kind }}&year={{ year }}&sort=year">&#8593;</a></th><th>Тираж</th><th></th></tr>
+  {% for e in entries %}
+  <tr>
+    <td>{{ e.n }}</td>
+    <td>{{ e.name }}</td>
+    <td>{{ e.kind }}</td>
+    <td>{{ e.year or '&mdash;' | safe }}</td>
+    <td>{{ e.size }}</td>
+    <td>
+      <form method="post" action="/api/collection" class="inline">
+        <input type="hidden" name="card" value="{{ e.n }}">
+        <input type="hidden" name="back" value="{{ request.full_path }}">
+        {% if e.n in owned %}
+        <input type="submit" value="убрать">
+        {% else %}
+        <input type="submit" value="+ в коллекцию">
+        {% endif %}
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p class="err">Отмечать карты в коллекции могут только члены клуба. Войдите или зарегистрируйтесь на главной странице.</p>
+<table class="list">
+  <tr><th><a href="/catalog?q={{ q | urlencode }}&kind={{ kind }}&year={{ year }}&sort=n">№</a></th><th>Название</th><th>Тип</th><th><a href="/catalog?q={{ q | urlencode }}&kind={{ kind }}&year={{ year }}&sort=-year">Год</a> <a href="/catalog?q={{ q | urlencode }}&kind={{ kind }}&year={{ year }}&sort=year">&#8593;</a></th><th>Тираж</th><th></th></tr>
+  {% for e in entries %}
+  <tr>
+    <td>{{ e.n }}</td>
+    <td>{{ e.name }}</td>
+    <td>{{ e.kind }}</td>
+    <td>{{ e.year or '' }}</td>
+    <td>{{ e.size }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+{% if pages > 1 %}
+<p class="muted">Страницы:
+{% for p in range(1, pages + 1) %}
+  {% if p >= page - 5 and p <= page + 5 %}
+    {% if p == page %}<b>{{ p }}</b>{% else %}<a href="/catalog?q={{ q | urlencode }}&kind={{ kind }}&year={{ year }}&sort={{ sort }}&page={{ p }}">{{ p }}</a>{% endif %}
+  {% endif %}
+{% endfor %}
+
+ <a href="/catalog?q={{ q | urlencode }}&kind={{ kind }}&year={{ year }}&sort={{ sort }}&page={{ page - 1 if page > 1 else 1 }}">&laquo; вперёд</a>
+ <a href="/catalog?q={{ q | urlencode }}&kind={{ kind }}&year={{ year }}&sort={{ sort }}&page={{ page + 1 if page < pages else pages }}">назад &raquo;</a>
+</p>
+{% endif %}
+{% endblock %}

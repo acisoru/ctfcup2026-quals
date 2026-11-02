@@ -1,0 +1,7 @@
+services:
+  app:
+    build: .
+    ports:
+      - "5001:8080"
+  mongo:
+    image: mongo:7
