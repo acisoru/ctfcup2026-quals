@@ -127,7 +127,7 @@
 | [Святой Кодекс](web/codex) | web | 435 | — |
 | [Святой Кодекс (Revenge)](web/codex-revenge) | web | 69 | — |
 | [compuuuter](web/compuuuter) | web<br>beginner | 480 | — |
-| [Docus](web/docus) | web | 58 | — |
+| [Docus](web/docus) | web | 58 | [@nazrom6](https://t.me/nazrom6) |
 | [Hidden Network](web/hidden-network) | web<br>protocol<br>lte | 112 | [@pipeline_sh](https://t.me/pipeline_sh) |
 | [Peridromofilia](web/peridromofilia) | web | 213 | [@arseny2606](https://t.me/arseny2606) |
 | [PokéBox](web/pokebox) | web | 136 | [@itsnagixyz](https://t.me/itsnagixyz) |

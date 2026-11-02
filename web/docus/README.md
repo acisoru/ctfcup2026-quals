@@ -1,6 +1,6 @@
 # Docus | web
 
-**Автор:** —
+**Автор:** [@nazrom6](https://t.me/nazrom6)
 
 ## Описание
 
