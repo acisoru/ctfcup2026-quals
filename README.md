@@ -132,3 +132,7 @@
 | [Peridromofilia](web/peridromofilia) | web | 213 | [@arseny2606](https://t.me/arseny2606) |
 | [PokéBox](web/pokebox) | web | 136 | [@itsnagixyz](https://t.me/itsnagixyz) |
 | [Электронный журнал](web/uroki) | web | 298 | [@arseny2606](https://t.me/arseny2606) |
+
+### Статистика
+
+Статистика доступна в директории [statistics](statistics/README.md).

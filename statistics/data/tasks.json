@@ -1,0 +1,406 @@
+[
+  {
+    "task_id": "burmalda",
+    "type": "https",
+    "tags": [
+      "misc"
+    ],
+    "instanceLifetime": 600,
+    "cpuLimit": "50m",
+    "memoryLimit": "128Mi",
+    "diskLimit": "10Gi",
+    "kvm": false
+  },
+  {
+    "task_id": "connectome",
+    "type": "static",
+    "tags": [
+      "crypto",
+      "osint"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "iso",
+    "type": "static",
+    "tags": [
+      "crypto"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "chik-chirik",
+    "type": "static",
+    "tags": [
+      "forensics",
+      "radio",
+      "dsp"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "mobile-forensics",
+    "type": "static",
+    "tags": [
+      "forensics",
+      "mobile",
+      "reverse"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "ker_quest",
+    "type": "static",
+    "tags": [
+      "misc",
+      "funny"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "pokebox",
+    "type": "http",
+    "tags": [
+      "web"
+    ],
+    "instanceLifetime": 1800,
+    "cpuLimit": "100m",
+    "memoryLimit": "256Mi",
+    "diskLimit": "256Mi",
+    "kvm": false
+  },
+  {
+    "task_id": "uroki",
+    "type": "http",
+    "tags": [
+      "web"
+    ],
+    "instanceLifetime": 1800,
+    "cpuLimit": "100m",
+    "memoryLimit": "256Mi",
+    "diskLimit": "256Mi",
+    "kvm": false
+  },
+  {
+    "task_id": "docus",
+    "type": "http",
+    "tags": [
+      "web"
+    ],
+    "instanceLifetime": 3600,
+    "cpuLimit": "250m",
+    "memoryLimit": "2Gi",
+    "diskLimit": "10Gi",
+    "kvm": false
+  },
+  {
+    "task_id": "noise_in_space",
+    "type": "static",
+    "tags": [
+      "dsp",
+      "reverse"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "mobile-schrodinger-cat",
+    "type": "static",
+    "tags": [
+      "mobile"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "mobile-russian-post",
+    "type": "static",
+    "tags": [
+      "mobile"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "image-viewer",
+    "type": "tcp",
+    "tags": [
+      "pwn",
+      "reverse",
+      "web"
+    ],
+    "instanceLifetime": 300,
+    "cpuLimit": "100m",
+    "memoryLimit": "128Mi",
+    "diskLimit": "10Gi",
+    "kvm": false
+  },
+  {
+    "task_id": "peridromofilia",
+    "type": "https",
+    "tags": [
+      "web"
+    ],
+    "instanceLifetime": 1800,
+    "cpuLimit": "250m",
+    "memoryLimit": "1Gi",
+    "diskLimit": "10Gi",
+    "kvm": false
+  },
+  {
+    "task_id": "codex",
+    "type": "https",
+    "tags": [
+      "web"
+    ],
+    "instanceLifetime": 1800,
+    "cpuLimit": "250m",
+    "memoryLimit": "512Mi",
+    "diskLimit": "256Mi",
+    "kvm": false
+  },
+  {
+    "task_id": "cybercup",
+    "type": "static",
+    "tags": [
+      "reverse",
+      "windows"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "ghostvector",
+    "type": "ssh",
+    "tags": [
+      "pwn",
+      "reverse",
+      "hardware"
+    ],
+    "instanceLifetime": 1800,
+    "cpuLimit": "100m",
+    "memoryLimit": "512Mi",
+    "diskLimit": "2Gi",
+    "kvm": false
+  },
+  {
+    "task_id": "hiden-network",
+    "type": "http",
+    "tags": [
+      "web",
+      "protocol",
+      "lte"
+    ],
+    "instanceLifetime": 1800,
+    "cpuLimit": "750m",
+    "memoryLimit": "5Gi",
+    "diskLimit": "4Gi",
+    "kvm": true
+  },
+  {
+    "task_id": "flygammon",
+    "type": "https",
+    "tags": [
+      "misc"
+    ],
+    "instanceLifetime": 1800,
+    "cpuLimit": "800m",
+    "memoryLimit": "512M",
+    "diskLimit": "10Gi",
+    "kvm": false
+  },
+  {
+    "task_id": "puzzle",
+    "type": "static",
+    "tags": [
+      "forensics",
+      "reverse"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "khudozhestvenniy-film",
+    "type": "static",
+    "tags": [
+      "forensics",
+      "blockchain",
+      "evm",
+      "reverse"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "tartaros",
+    "type": "ssh",
+    "tags": [
+      "windows",
+      "pwn",
+      "kernel"
+    ],
+    "instanceLifetime": 600,
+    "cpuLimit": "500m",
+    "memoryLimit": "4Gi",
+    "diskLimit": "10Gi",
+    "kvm": true
+  },
+  {
+    "task_id": "weird-rsa",
+    "type": "static",
+    "tags": [
+      "crypto",
+      "beginner"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "my-own-fs",
+    "type": "static",
+    "tags": [
+      "forensics",
+      "filesystem",
+      "beginner"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "traverse",
+    "type": "static",
+    "tags": [
+      "hardware",
+      "reverse",
+      "fpga",
+      "beginner"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "snake",
+    "type": "http",
+    "tags": [
+      "misc",
+      "beginner"
+    ],
+    "instanceLifetime": 1800,
+    "cpuLimit": "50m",
+    "memoryLimit": "64Mi",
+    "diskLimit": "1Gi",
+    "kvm": false
+  },
+  {
+    "task_id": "filter",
+    "type": "tcp",
+    "tags": [
+      "pwn",
+      "beginner"
+    ],
+    "instanceLifetime": 600,
+    "cpuLimit": "50m",
+    "memoryLimit": "64Mi",
+    "diskLimit": "1Gi",
+    "kvm": false
+  },
+  {
+    "task_id": "21_century_man",
+    "type": "static",
+    "tags": [
+      "reverse",
+      "hardware"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "mmm",
+    "type": "static",
+    "tags": [
+      "reverse",
+      "linux",
+      "beginner"
+    ],
+    "instanceLifetime": null,
+    "cpuLimit": null,
+    "memoryLimit": null,
+    "diskLimit": null,
+    "kvm": false
+  },
+  {
+    "task_id": "compuuuter",
+    "type": "https",
+    "tags": [
+      "web",
+      "beginner"
+    ],
+    "instanceLifetime": 1800,
+    "cpuLimit": "50m",
+    "memoryLimit": "64Mi",
+    "diskLimit": "1Gi",
+    "kvm": false
+  },
+  {
+    "task_id": "codex-revenge",
+    "type": "https",
+    "tags": [
+      "web"
+    ],
+    "instanceLifetime": 1800,
+    "cpuLimit": "250m",
+    "memoryLimit": "512Mi",
+    "diskLimit": "256Mi",
+    "kvm": false
+  }
+]
